@@ -9,7 +9,7 @@ Pak Ho Lam (phlamah@uw.edu)
 ## Reference Paper
 1. Candes, E. J., Li, X., Ma, Y., & Wright, J. (2009, December 18). Robust principal component analysis? arXiv.Org. https://doi.org/10.48550/arXiv.0912.3599
 
-2. Lin, Z., Chen, M., & Ma, Y. (2010). The augmented lagrange multiplier method for exact recovery of corrupted low-rank matrices (1009.5055v3). arXiv. https://doi.org/10.1016/j.jsb.2012.10.010
+2. Lin, Z., Chen, M., & Ma, Y. (2010). The augmented lagrange multiplier method for exact recovery of corrupted low-rank matrices (1009.5055v3). arXiv. https://doi.org/10.48550/arXiv.1009.5055
 
 ## Aim
 To develop an efficient video background removal system by leveraging Robust Principal Component Analysis (Robust PCA) and optimized low-rank matrix multiplication techniques. The system aims to separate static background information from moving foreground objects in an input video while improving computational efficiency and maintaining robust background estimation.

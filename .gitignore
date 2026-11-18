@@ -221,3 +221,25 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# --- LaTeX Auxiliary Build Files ---
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+*.bcf
+*.run.xml
+*.xdv
+*.upa
+*.upb
+
+# --- Output PDF (Optional: remove this line if you want to track PDFs in git) ---
+# *.pdf
