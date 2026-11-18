@@ -20,7 +20,7 @@ video_matrix = np.column_stack([f.flatten() for f in frames])
 
 # 1. Print out matrix details to verify its structure
 print("--- Video Matrix Summary ---")
-print(f"Shape (Pixels × Frames): {video_matrix.shape}")
+print(f"Shape (Pixels x Frames): {video_matrix.shape}")
 print(f"Data Type: {video_matrix.dtype}")
 print(f"Memory Size: {video_matrix.nbytes / (1024 * 1024):.2f} MB")
 print(

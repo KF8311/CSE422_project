@@ -1,2 +1,6 @@
 numpy
 opencv-python
+matplotlib
+tqdm
+ipython
+scikit-learn
