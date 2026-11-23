@@ -3,6 +3,7 @@ import numpy as np
 from tqdm import tqdm
 from sklearn.utils.extmath import randomized_svd
 
+
 def apg_rpca(
     D,
     lambda_param=None,
@@ -10,6 +11,7 @@ def apg_rpca(
     eta=0.9,
     tol=1e-7,
     max_iter=500,
+    use_randomized_svd=True,
 ):
     """
     Algorithm 2: RPCA via Accelerated Proximal Gradient from Lin et al. (2010)
@@ -41,8 +43,12 @@ def apg_rpca(
             Y_E = E + factor * (E - E_prev)
             G_A = Y_A - 0.5 * (Y_A + Y_E - D)
             progress.set_postfix(stage="SVD", refresh=True)
-            # U, S, Vt = np.linalg.svd(G_A, full_matrices=False)
-            U, S, Vt = randomized_svd(G_A, n_components=5, n_iter=2, random_state=None) # Speedup SVD computation using randomized SVD
+            if use_randomized_svd:
+                U, S, Vt = randomized_svd(
+                    G_A, n_components=5, n_iter=2, random_state=None
+                )
+            else:
+                U, S, Vt = np.linalg.svd(G_A, full_matrices=False)
             threshold_A = mu / 2.0
             s_thresh = np.maximum(S - threshold_A, 0)
             A_next = np.dot(U, np.dot(np.diag(s_thresh), Vt))
