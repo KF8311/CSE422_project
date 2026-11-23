@@ -112,10 +112,22 @@ def main() -> None:
     # A, E = apg_rpca(D, **algo_kwargs)
 
     # Algorithm 5: RPCA via Inexact ALM from Lin et al. (2010)
+    BASE_KWARGS = {
+    "lambda_param": None,   
+    "mu0": None,               # Uses default heuristic when None
+    "rho": 1.5,
+    "mu_max": 1e7,
+    "tol": 1e-7,
+    "max_iter": 500,
+    "use_randomized_svd": True,
+    "n_components": 10,
+    "n_iter_svd": 2,
+    "random_state": 42,        # Fixed seed for reproducible comparisons
+    }
     algo_name = "ialm_rpca"
     algo_kwargs = {}
     logger.info("Running IALM-RPCA background subtraction...")
-    A, E = ialm_rpca(D, **algo_kwargs)
+    A, E = ialm_rpca(D, **BASE_KWARGS)
 
     elapsed_rpca = time.perf_counter() - t_start
     current_mem, peak_mem = tracemalloc.get_traced_memory()

@@ -1,0 +1,15 @@
+2026-11-22 19:08:04 | INFO | === RPCA Experiment Start (2026-11-22T19:08:04.732501) ===
+2026-11-22 19:08:04 | INFO | Config: WIDTH=240, HEIGHT=160, MAX_FRAMES=200, INPUT_PATH=video_matrix.npy, OUTPUT_MP4=rpca_result.mp4, FG_CLIP_SCALE=2.0000, FG_THRESHOLD=0.2000, FPS=25, algo=ialm_rpca, algo_kwargs={}
+2026-11-22 19:08:04 | INFO | Loading video_matrix.npy...
+2026-11-22 19:08:05 | INFO | D_raw: shape=(38400, 795), dtype=uint8, min=0, max=255, mean=119.579, std=45.841, fro_norm=707584
+2026-11-22 19:08:05 | INFO | D_normalized: shape=(38400, 200), dtype=float32, min=0, max=1, mean=0.474677, std=0.180201, fro_norm=1407.09
+2026-11-22 19:08:05 | INFO | Derived m=38400, n=200, default_lambda=0.0051031
+2026-11-22 19:08:05 | INFO | Running IALM-RPCA background subtraction...
+2026-11-22 19:12:07 | INFO | RPCA finished in 234.982s (1.1749s/frame) | current_mem=117.25 MB | peak_mem=650.49 MB
+2026-11-22 19:12:07 | INFO | A (Low-Rank Background): shape=(38400, 200), dtype=float64, min=-0.00061916, max=1.00484, mean=0.480519, std=0.17686, fro_norm=1418.99
+2026-11-22 19:12:07 | INFO | E (Sparse Foreground): shape=(38400, 200), dtype=float64, min=-0.951982, max=0.809268, mean=-0.00584165, std=0.0593204, fro_norm=165.189
+2026-11-22 19:12:07 | INFO | Decomposition metrics: rel_recon_err=6.107028e-08, A_matrix_rank=10, E_abs_gt_1e-6_ratio=0.999508 (99.95%)
+2026-11-22 19:12:07 | INFO | foreground (post-processed): shape=(38400, 200), dtype=float64, min=0, max=1, mean=0.0135822, std=0.105029, fro_norm=293.488
+2026-11-22 19:12:07 | INFO | Foreground stats: fg_max_before=0.951982, active_pixels_ge_thresh=146039, active_pixels_after_zeroing=146039 / 7680000 (1.90%)
+2026-11-22 19:12:07 | INFO | Saving animation to rpca_result.mp4...
+2026-11-22 19:12:24 | INFO | Animation saved in 16.314s | file_size=0.32 MB | log_file=rpca_run.log
