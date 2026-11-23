@@ -25,5 +25,6 @@ python video_to_matrix.py
 
 ## 3. Run RPCA
 ```bash
-pythonb run_rpca.py
+python experiment_rpca.py test1
 ```
+Substitute `test1` with the test you want to use.

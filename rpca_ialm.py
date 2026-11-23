@@ -27,6 +27,7 @@ def ialm_rpca(
     n_components=10,
     n_iter_svd=2,
     random_state=None,
+    return_info=False,
 ):
     """
     Algorithm 5: RPCA via the Inexact ALM Method from Lin et al. (2010).
@@ -52,7 +53,13 @@ def ialm_rpca(
 
     D_norm = np.linalg.norm(D, ord="fro")
     if D_norm == 0.0:
-        return A.copy(), E.copy()
+        result = (A.copy(), E.copy())
+        if return_info:
+            return (*result, {"iterations_run": 0, "converged": True})
+        return result
+
+    iterations_run = 0
+    converged = False
 
     with tqdm(
         total=max_iter,
@@ -62,6 +69,7 @@ def ialm_rpca(
         mininterval=0.1,
     ) as progress:
         for _ in range(1, max_iter + 1):
+            iterations_run += 1
             inv_mu = 1.0 / mu
 
             # Lines 4-5: Solve A_{k+1} = arg min_A L(A, E_k, Y_k, mu_k)
@@ -97,6 +105,7 @@ def ialm_rpca(
             A, E, Y = A_next, E_next, Y_next
 
             if rel_err < tol:
+                converged = True
                 progress.set_postfix_str(f"converged err={rel_err:.2e}")
                 progress.close()
                 break
@@ -104,4 +113,6 @@ def ialm_rpca(
             # Line 9: Update mu_k -> mu_{k+1}
             mu = min(rho * mu, mu_max)
 
+    if return_info:
+        return A, E, {"iterations_run": iterations_run, "converged": converged}
     return A, E

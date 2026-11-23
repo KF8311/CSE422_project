@@ -1,0 +1,2 @@
+2026-11-23 07:58:21,038 | INFO | Starting test1 with kwargs={}
+2026-11-23 07:59:09,330 | INFO | Finished in 22.179s; iterations_run=43; converged=True; peak_mem_mb=650.48; rel_recon_err=6.845038e-08; A_rank=10; E_nonzero_ratio=0.999500; foreground_active_ratio=0.019020; video=experiments\test1\test1.mp4

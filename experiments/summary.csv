@@ -1,0 +1,2 @@
+test,kwargs,seconds,iterations_run,converged,peak_mem_mb,relative_reconstruction_error,background_rank,sparse_nonzero_ratio,foreground_active_ratio,video
+test3,{'lambda_param': np.float64(0.010206207261596576)},20.000420700001996,40,True,650.4791135787964,9.82913560823952e-08,10,0.9981631510416666,0.017777083333333332,experiments\test3\test3.mp4
